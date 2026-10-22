@@ -1,0 +1,940 @@
+[
+  {
+    "id": "st_1",
+    "name": "Abdunazarov Olloxyorbek",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_2",
+    "name": "Abdurasulova Dilso`z",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_5",
+    "name": "Alijonova Mubinabonu",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_23",
+    "name": "Nurmuxamadova Muslimaxon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_24",
+    "name": "Oribjonov Dilyorbek",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_26",
+    "name": "Qosimov Jasurbek",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_29",
+    "name": "Rasulova Iymonaxon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_30",
+    "name": "Raxmatjonova Malikaxon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_31",
+    "name": "Samiyeva Shukronaxon",
+    "grades_raw": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_32",
+    "name": "Uktamjonov Xasanjon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_33",
+    "name": "Uktamjonova Fotimaxon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_34",
+    "name": "Uktamjonova Zuhraxon",
+    "grades_raw": [
+      "-",
+      "-",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      5
+    ],
+    "avg": 5.0,
+    "category": "excellent",
+    "category_title": "Отличник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 0,
+    "group12": 1,
+    "group12_title": "Группа 1"
+  },
+  {
+    "id": "st_28",
+    "name": "Rahimjonov Muhammadzohid",
+    "grades_raw": [
+      "5",
+      "4",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      4,
+      5,
+      5
+    ],
+    "avg": 4.75,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 В",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_35",
+    "name": "Usmonaliyeva Mehrangiz",
+    "grades_raw": [
+      "5",
+      "5",
+      "4",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      4,
+      5
+    ],
+    "avg": 4.75,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_38",
+    "name": "Xolikova Yasemin",
+    "grades_raw": [
+      "5",
+      "5",
+      "4",
+      "5"
+    ],
+    "grades": [
+      5,
+      5,
+      4,
+      5
+    ],
+    "avg": 4.75,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 В",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_40",
+    "name": "Yakubov Abubakr",
+    "grades_raw": [
+      "5",
+      "4",
+      "5",
+      "5"
+    ],
+    "grades": [
+      5,
+      4,
+      5,
+      5
+    ],
+    "avg": 4.75,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_4",
+    "name": "Adxamov Amirbek",
+    "grades_raw": [
+      "4",
+      "5",
+      "5",
+      "4"
+    ],
+    "grades": [
+      4,
+      5,
+      5,
+      4
+    ],
+    "avg": 4.5,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 В",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_3",
+    "name": "Abduraxmanova Sitoraxon",
+    "grades_raw": [
+      "4",
+      "4",
+      "5",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      5,
+      4
+    ],
+    "avg": 4.25,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_6",
+    "name": "Axmadaliyev Nodirjon",
+    "grades_raw": [
+      "4",
+      "5",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      5,
+      4,
+      4
+    ],
+    "avg": 4.25,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_10",
+    "name": "Bahodirsherova Jasmina",
+    "grades_raw": [
+      "4",
+      "5",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      5,
+      4,
+      4
+    ],
+    "avg": 4.25,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_14",
+    "name": "Ibroximova Munisaxon",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "5"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      5
+    ],
+    "avg": 4.25,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_27",
+    "name": "Qurbonov Komronbek",
+    "grades_raw": [
+      "5",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      5,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.25,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_11",
+    "name": "Egamberdiyeva Iymonaxon",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_12",
+    "name": "Ergasheva Farangiz",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 2,
+    "group12_title": "Группа 2"
+  },
+  {
+    "id": "st_15",
+    "name": "Ilxomov Saidakbar",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_20",
+    "name": "Maxmudova Madinabonu",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 В",
+    "note": "",
+    "cat_order": 1,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_36",
+    "name": "Xabibulloyev Azizbek",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_37",
+    "name": "Xamdamova Gulira`no",
+    "grades_raw": [
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "avg": 4.0,
+    "category": "good",
+    "category_title": "Хорошист",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 1,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_9",
+    "name": "Axmedov Isrofil",
+    "grades_raw": [
+      "4",
+      "4",
+      "3",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      3,
+      4
+    ],
+    "avg": 3.75,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_17",
+    "name": "Kamilov Firdavs",
+    "grades_raw": [
+      "3",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      3,
+      4,
+      4,
+      4
+    ],
+    "avg": 3.75,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_18",
+    "name": "Karimova Marjona",
+    "grades_raw": [
+      "3",
+      "4",
+      "4",
+      "4"
+    ],
+    "grades": [
+      3,
+      4,
+      4,
+      4
+    ],
+    "avg": 3.75,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_25",
+    "name": "Ortiqova Madinabonu",
+    "grades_raw": [
+      "4",
+      "4",
+      "3",
+      "4"
+    ],
+    "grades": [
+      4,
+      4,
+      3,
+      4
+    ],
+    "avg": 3.75,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_13",
+    "name": "Ergasheva Yosina",
+    "grades_raw": [
+      "3",
+      "3",
+      "3",
+      "4"
+    ],
+    "grades": [
+      3,
+      3,
+      3,
+      4
+    ],
+    "avg": 3.25,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_21",
+    "name": "Mo`minov Behruz",
+    "grades_raw": [
+      "3",
+      "4",
+      "3",
+      "3"
+    ],
+    "grades": [
+      3,
+      4,
+      3,
+      3
+    ],
+    "avg": 3.25,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_39",
+    "name": "Xusanboyeva Robiyaxon",
+    "grades_raw": [
+      "3",
+      "3",
+      "4",
+      "3"
+    ],
+    "grades": [
+      3,
+      3,
+      4,
+      3
+    ],
+    "avg": 3.25,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 В",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_16",
+    "name": "Kadirov Azizbek",
+    "grades_raw": [
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "grades": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "avg": 3.0,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 3,
+    "group12_title": "Группа 3"
+  },
+  {
+    "id": "st_19",
+    "name": "Kashnikov Miroslav",
+    "grades_raw": [
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "grades": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "avg": 3.0,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 4,
+    "group12_title": "Группа 4"
+  },
+  {
+    "id": "st_22",
+    "name": "Murodilov Nurbek",
+    "grades_raw": [
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "grades": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "avg": 3.0,
+    "category": "satisfactory",
+    "category_title": "Троечник",
+    "parallel": "4 Г",
+    "note": "",
+    "cat_order": 2,
+    "group12": 4,
+    "group12_title": "Группа 4"
+  },
+  {
+    "id": "st_7",
+    "name": "Axmadaliyeva Samira",
+    "grades_raw": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "grades": [],
+    "avg": null,
+    "category": "no_data",
+    "category_title": "Нет данных",
+    "parallel": "",
+    "note": "Нет архивной записи за 4-й класс в карточке",
+    "cat_order": 3,
+    "group12": 4,
+    "group12_title": "Группа 4"
+  },
+  {
+    "id": "st_8",
+    "name": "Axmadov Imronbek",
+    "grades_raw": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "grades": [],
+    "avg": null,
+    "category": "no_data",
+    "category_title": "Нет данных",
+    "parallel": "",
+    "note": "Нет архивной записи за 4-й класс в карточке",
+    "cat_order": 3,
+    "group12": 4,
+    "group12_title": "Группа 4"
+  }
+]

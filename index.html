@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Учёт СОЧ по математике | 5-е классы</title>
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-light: #e0e7ff;
+      --primary-hover: #3730a3;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --success-border: #86efac;
+      --danger: #b91c1c;
+      --danger-bg: #fef2f2;
+      --danger-border: #fca5a5;
+      --warning: #b45309;
+      --warning-bg: #fffbeb;
+      --neutral-bg: #f8fafc;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: var(--text-dark);
+      padding-bottom: 80px;
+    }
+
+    /* TOP HEADER */
+    .top-hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+      color: #ffffff;
+      padding: 28px 20px 24px;
+      box-shadow: 0 4px 20px rgba(49, 46, 129, 0.25);
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-title h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-title p {
+      font-size: 0.95rem;
+      color: #c7d2fe;
+      margin-top: 6px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-btn:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .hero-btn-danger {
+      color: #fca5a5;
+      border-color: rgba(248, 113, 113, 0.4);
+    }
+
+    .hero-btn-danger:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #ffffff;
+    }
+
+    /* CLASS SWITCHER BANNER */
+    .class-nav-wrap {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 18px;
+    }
+
+    .class-nav-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #a5b4fc;
+    }
+
+    .class-selector-tabs {
+      display: flex;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .class-tab-card {
+      padding: 10px 24px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: #c7d2fe;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .class-tab-card:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .class-tab-card.active {
+      background: #ffffff;
+      color: #312e81;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .class-tab-card.active .tab-badge {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    /* STATS SUMMARY DASHBOARD */
+    .stats-dashboard {
+      margin-top: -16px;
+      margin-bottom: 24px;
+    }
+
+    .stats-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-box .title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .stat-box .number {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 4px;
+      line-height: 1;
+    }
+
+    .stat-box .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .stat-total .icon { background: #e0e7ff; color: #4338ca; }
+    .stat-present .icon { background: #dcfce7; color: #16a34a; }
+    .stat-absent .icon { background: #fee2e2; color: #dc2626; }
+    .stat-pending .icon { background: #f1f5f9; color: #64748b; }
+
+    /* PROGRESS BAR */
+    .progress-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      margin-top: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      background: #e2e8f0;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-fill-present {
+      background: #16a34a;
+      transition: width 0.3s ease;
+    }
+
+    .progress-fill-absent {
+      background: #dc2626;
+      transition: width 0.3s ease;
+    }
+
+    /* CONTROL TOOLBAR */
+    .toolbar-section {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .search-wrapper {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 11px 16px 11px 42px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-color);
+      font-size: 0.95rem;
+      font-weight: 500;
+      background: #f8fafc;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Segmented view switchers */
+    .view-switcher-group {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 10px;
+      gap: 4px;
+    }
+
+    .view-switch-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+
+    .view-switch-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    /* Filter pills */
+    .filter-pills-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      border: 1.5px solid var(--border-color);
+      background: #ffffff;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+
+    .filter-pill.active {
+      background: #1e1b4b;
+      color: #ffffff;
+      border-color: #1e1b4b;
+    }
+
+    /* SECTION TILES (ПЛИТКИ ГРУПП) */
+    .group-tile-section {
+      background: #ffffff;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .group-tile-section:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Custom colored headers for tiles */
+    .tile-header {
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1.5px solid var(--border-color);
+    }
+
+    .tile-excellent .tile-header {
+      background: linear-gradient(to right, #fefce8, #fffbeb);
+      border-bottom-color: #fde047;
+    }
+
+    .tile-good .tile-header {
+      background: linear-gradient(to right, #eff6ff, #f0f9ff);
+      border-bottom-color: #bae6fd;
+    }
+
+    .tile-satisfactory .tile-header {
+      background: linear-gradient(to right, #fff7ed, #fff1f2);
+      border-bottom-color: #fed7aa;
+    }
+
+    .tile-nodata .tile-header {
+      background: #f8fafc;
+      border-bottom-color: #e2e8f0;
+    }
+
+    .tile-group12 .tile-header {
+      background: linear-gradient(to right, #f5f3ff, #ede9fe);
+      border-bottom-color: #ddd6fe;
+    }
+
+    .tile-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tile-avatar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .tile-title-text h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tile-count-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      background: #ffffff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: #334155;
+    }
+
+    .tile-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .tile-quick-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .action-pill-btn {
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-color);
+      background: #ffffff;
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .action-pill-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    /* STUDENTS GRID */
+    .students-container-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 18px;
+      padding: 22px;
+      background: #fafaf9;
+    }
+
+    /* REDESIGNED BEAUTIFUL STUDENT CARD */
+    .student-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .student-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Active status styling */
+    .student-card.status-present {
+      border-color: #22c55e;
+      background: linear-gradient(to bottom, #ffffff, #f0fdf4);
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.15);
+    }
+
+    .student-card.status-absent {
+      border-color: #ef4444;
+      background: linear-gradient(to bottom, #ffffff, #fef2f2);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.12);
+      opacity: 0.9;
+    }
+
+    /* Top info row */
+    .card-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .person-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .status-present .person-num {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .status-absent .person-num {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .person-details .name {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    .person-details .subinfo {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .category-tag {
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.725rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .cat-tag-excellent { background: #fef08a; color: #854d0e; }
+    .cat-tag-good { background: #bae6fd; color: #0369a1; }
+    .cat-tag-satisfactory { background: #fed7aa; color: #9a3412; }
+    .cat-tag-nodata { background: #e2e8f0; color: #475569; }
+
+    /* STATUS BADGE */
+    .status-state-pill {
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .state-pending {
+      background: #f1f5f9;
+      color: #64748b;
+      border: 1px solid #e2e8f0;
+    }
+
+    .state-present {
+      background: #15803d;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(21, 128, 61, 0.3);
+    }
+
+    .state-absent {
+      background: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(185, 28, 28, 0.3);
+    }
+
+    /* REPORT CARD GRADES STRIP */
+    .grades-strip {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .quarters-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quarter-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .quarter-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+
+    .grade-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #475569;
+    }
+
+    .grade-badge.grade-5 {
+      background: #22c55e;
+      color: #ffffff;
+      border-color: #16a34a;
+    }
+
+    .grade-badge.grade-4 {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0369a1;
+    }
+
+    .grade-badge.grade-3 {
+      background: #ea580c;
+      color: #ffffff;
+      border-color: #c2410c;
+    }
+
+    .grade-badge.grade-dash {
+      background: #f1f5f9;
+      color: #94a3b8;
+    }
+
+    .avg-score-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      border-left: 1.5px solid #e2e8f0;
+      padding-left: 12px;
+    }
+
+    .avg-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+
+    .avg-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    /* ACTION BUTTONS (BIG & INTUITIVE) */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-soch {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid #86efac;
+      background: #ffffff;
+      color: #15803d;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .btn-soch:hover {
+      background: #dcfce7;
+      border-color: #22c55e;
+      transform: translateY(-1px);
+    }
+
+    .btn-soch.active {
+      background: #16a34a;
+      color: #ffffff;
+      border-color: #15803d;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+    }
+
+    .btn-absent {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid #fca5a5;
+      background: #ffffff;
+      color: #b91c1c;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .btn-absent:hover {
+      background: #fee2e2;
+      border-color: #ef4444;
+      transform: translateY(-1px);
+    }
+
+    .btn-absent.active {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #b91c1c;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+    }
+
+    .btn-revert {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-color);
+      background: #ffffff;
+      color: #64748b;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .btn-revert:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-color: #94a3b8;
+    }
+
+    /* NOTE ROW */
+    .card-note {
+      position: relative;
+    }
+
+    .note-input-field {
+      width: 100%;
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px dashed #cbd5e1;
+      background: transparent;
+      font-size: 0.825rem;
+      color: #334155;
+      transition: all 0.2s;
+    }
+
+    .note-input-field:focus {
+      outline: none;
+      border-style: solid;
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.1);
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast-box {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .empty-message {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .students-container-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+      .toolbar-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .view-switcher-group {
+        justify-content: center;
+      }
+    }
+
+    @media print {
+      .top-hero, .toolbar-section, .tile-quick-actions, .card-actions, .card-note, .btn-revert {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+      }
+      .group-tile-section {
+        border: 1px solid #cccccc;
+        box-shadow: none;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO TOP BAR -->
+  <div class="top-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-title">
+          <h1>📊 Учёт сдачи СОЧ по математике</h1>
+          <p id="heroSubtitle">5-е классы • На основе успеваемости за 4-й класс (eMaktab) • Автосохранение</p>
+        </div>
+        <div class="hero-actions">
+          <button class="hero-btn" onclick="exportToCSV()" title="Скачать таблицу с отметками">
+            📥 Скачать ведомость (Excel / CSV)
+          </button>
+          <button class="hero-btn" onclick="window.print()" title="Распечатать ведомость">
+            🖨️ Печать
+          </button>
+          <button class="hero-btn hero-btn-danger" onclick="resetActiveStatuses()" title="Сбросить все отметки класса">
+            🔄 Сбросить класс
+          </button>
+        </div>
+      </div>
+
+      <!-- CLASS SELECTOR BUTTONS (VERY PROMINENT) -->
+      <div class="class-nav-wrap">
+        <span class="class-nav-label">Выберите класс для работы:</span>
+        <div class="class-selector-tabs">
+          <button class="class-tab-card active" id="tab5g" onclick="switchClass('5g')">
+            🏫 5 «Г» класс <span class="tab-badge" id="badge5g">40 учеников</span>
+          </button>
+          <button class="class-tab-card" id="tab5a" onclick="switchClass('5a')">
+            🏫 5 «А» класс <span class="tab-badge" id="badge5a">36 учеников</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+
+    <!-- STATS DASHBOARD -->
+    <div class="stats-dashboard">
+      <div class="stats-cards-grid">
+        <div class="stat-box stat-total">
+          <div>
+            <div class="title">Всего в классе</div>
+            <div class="number" id="dashTotal">40</div>
+          </div>
+          <div class="icon">👥</div>
+        </div>
+
+        <div class="stat-box stat-present">
+          <div>
+            <div class="title">Сдают СОЧ</div>
+            <div class="number" id="dashPresent" style="color: #15803d;">0</div>
+          </div>
+          <div class="icon">✍️</div>
+        </div>
+
+        <div class="stat-box stat-absent">
+          <div>
+            <div class="title">Не пришёл</div>
+            <div class="number" id="dashAbsent" style="color: #b91c1c;">0</div>
+          </div>
+          <div class="icon">❌</div>
+        </div>
+
+        <div class="stat-box stat-pending">
+          <div>
+            <div class="title">Осталось отметить</div>
+            <div class="number" id="dashPending" style="color: #64748b;">40</div>
+          </div>
+          <div class="icon">⏳</div>
+        </div>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span id="progressClassLabel">Прогресс заполнения</span>
+          <span id="progressPercentLabel">0% отмечено</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill-present" id="barPresent" style="width: 0%;"></div>
+          <div class="progress-fill-absent" id="barAbsent" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTROLS & FILTER TOOLBAR -->
+    <div class="toolbar-section">
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Быстрый поиск по фамилии или имени..." oninput="handleSearch()">
+      </div>
+
+      <!-- View Switcher -->
+      <div class="view-switcher-group">
+        <button class="view-switch-btn active" id="btnModeCat" onclick="setViewMode('categories')">
+          🌟 По успеваемости
+        </button>
+        <button class="view-switch-btn" id="btnModeGrp" onclick="setViewMode('groups12')">
+          👥 По группам (по 12)
+        </button>
+        <button class="view-switch-btn" id="btnModeFlat" onclick="setViewMode('flat')">
+          📋 Единый список
+        </button>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="filter-pills-group">
+        <button class="filter-pill active" data-filter="all" onclick="setStatusFilter('all')">Все (<span id="cntAll">40</span>)</button>
+        <button class="filter-pill" data-filter="present" onclick="setStatusFilter('present')">✍️ Сдают (<span id="cntPresent">0</span>)</button>
+        <button class="filter-pill" data-filter="absent" onclick="setStatusFilter('absent')">❌ Не пришли (<span id="cntAbsent">0</span>)</button>
+        <button class="filter-pill" data-filter="pending" onclick="setStatusFilter('pending')">⏳ Не отмечены (<span id="cntPending">40</span>)</button>
+      </div>
+    </div>
+
+    <!-- MAIN DYNAMIC CONTENT -->
+    <main id="tilesContainer">
+    </main>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-box" id="toast">
+    <span id="toastIcon">💾</span>
+    <span id="toastMsg">Автосохранение выполнено</span>
+  </div>
+
+  <script>
+    const CLASSES_DATABASE = {"5g": {"id": "5g", "title": "5 «Г» класс", "short": "5Г", "count": 40, "students": [{"id": "5g_1", "name": "Abdunazarov Olloxyorbek", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_2", "name": "Abdurasulova Dilso`z", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_5", "name": "Alijonova Mubinabonu", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_23", "name": "Nurmuxamadova Muslimaxon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_24", "name": "Oribjonov Dilyorbek", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_26", "name": "Qosimov Jasurbek", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_29", "name": "Rasulova Iymonaxon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_30", "name": "Raxmatjonova Malikaxon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_31", "name": "Samiyeva Shukronaxon", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_32", "name": "Uktamjonov Xasanjon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_33", "name": "Uktamjonova Fotimaxon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_34", "name": "Uktamjonova Zuhraxon", "grades_raw": ["-", "-", "5", "5"], "grades": [5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 Г", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5g_28", "name": "Rahimjonov Muhammadzohid", "grades_raw": ["5", "4", "5", "5"], "grades": [5, 4, 5, 5], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 В", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_35", "name": "Usmonaliyeva Mehrangiz", "grades_raw": ["5", "5", "4", "5"], "grades": [5, 5, 4, 5], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_38", "name": "Xolikova Yasemin", "grades_raw": ["5", "5", "4", "5"], "grades": [5, 5, 4, 5], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 В", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_40", "name": "Yakubov Abubakr", "grades_raw": ["5", "4", "5", "5"], "grades": [5, 4, 5, 5], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_4", "name": "Adxamov Amirbek", "grades_raw": ["4", "5", "5", "4"], "grades": [4, 5, 5, 4], "avg": 4.5, "category": "good", "category_title": "Хорошист", "parallel": "4 В", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_3", "name": "Abduraxmanova Sitoraxon", "grades_raw": ["4", "4", "5", "4"], "grades": [4, 4, 5, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_6", "name": "Axmadaliyev Nodirjon", "grades_raw": ["4", "5", "4", "4"], "grades": [4, 5, 4, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_10", "name": "Bahodirsherova Jasmina", "grades_raw": ["4", "5", "4", "4"], "grades": [4, 5, 4, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_14", "name": "Ibroximova Munisaxon", "grades_raw": ["4", "4", "4", "5"], "grades": [4, 4, 4, 5], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_27", "name": "Qurbonov Komronbek", "grades_raw": ["5", "4", "4", "4"], "grades": [5, 4, 4, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_11", "name": "Egamberdiyeva Iymonaxon", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_12", "name": "Ergasheva Farangiz", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5g_15", "name": "Ilxomov Saidakbar", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_20", "name": "Maxmudova Madinabonu", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 В", "note": "", "cat_order": 1, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_36", "name": "Xabibulloyev Azizbek", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_37", "name": "Xamdamova Gulira`no", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Г", "note": "", "cat_order": 1, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_9", "name": "Axmedov Isrofil", "grades_raw": ["4", "4", "3", "4"], "grades": [4, 4, 3, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_17", "name": "Kamilov Firdavs", "grades_raw": ["3", "4", "4", "4"], "grades": [3, 4, 4, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_18", "name": "Karimova Marjona", "grades_raw": ["3", "4", "4", "4"], "grades": [3, 4, 4, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_25", "name": "Ortiqova Madinabonu", "grades_raw": ["4", "4", "3", "4"], "grades": [4, 4, 3, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_13", "name": "Ergasheva Yosina", "grades_raw": ["3", "3", "3", "4"], "grades": [3, 3, 3, 4], "avg": 3.25, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_21", "name": "Mo`minov Behruz", "grades_raw": ["3", "4", "3", "3"], "grades": [3, 4, 3, 3], "avg": 3.25, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_39", "name": "Xusanboyeva Robiyaxon", "grades_raw": ["3", "3", "4", "3"], "grades": [3, 3, 4, 3], "avg": 3.25, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_16", "name": "Kadirov Azizbek", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5g_19", "name": "Kashnikov Miroslav", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 4, "group12_title": "Группа 4"}, {"id": "5g_22", "name": "Murodilov Nurbek", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 Г", "note": "", "cat_order": 2, "group12": 4, "group12_title": "Группа 4"}, {"id": "5g_7", "name": "Axmadaliyeva Samira", "grades_raw": ["", "", "", ""], "grades": [], "avg": null, "category": "no_data", "category_title": "Нет данных", "parallel": "", "note": "Нет архивной записи за 4-й класс в карточке", "cat_order": 3, "group12": 4, "group12_title": "Группа 4"}, {"id": "5g_8", "name": "Axmadov Imronbek", "grades_raw": ["", "", "", ""], "grades": [], "avg": null, "category": "no_data", "category_title": "Нет данных", "parallel": "", "note": "Нет архивной записи за 4-й класс в карточке", "cat_order": 3, "group12": 4, "group12_title": "Группа 4"}], "groups12_info": [{"id": 1, "title": "Группа 1 (12 человек)", "icon": "🥇", "desc": "Все 12 отличников класса (ср. балл 5.00)"}, {"id": 2, "title": "Группа 2 (12 человек)", "icon": "🥈", "desc": "12 сильных хорошистов (ср. балл 4.00 – 4.75)"}, {"id": 3, "title": "Группа 3 (12 человек)", "icon": "🥉", "desc": "4 хорошиста (все 4) + 8 троечников (ср. балл 3.00 – 4.00)"}, {"id": 4, "title": "Группа 4 (4 человека)", "icon": "📌", "desc": "2 троечника (все 3) + 2 без данных в архиве"}]}, "5a": {"id": "5a", "title": "5 «А» класс", "short": "5А", "count": 36, "students": [{"id": "5a_15", "name": "Latifova Hadicha", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 А", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_18", "name": "Nu`monova Shukrona", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 В", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_24", "name": "Ro`ziyev Yahyoxon", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 А", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_27", "name": "Tilovov Imronshoh", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 А", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_28", "name": "Tursunova Farzona", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 А", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_29", "name": "Urazayev Zikrulloh", "grades_raw": ["5", "5", "5", "5"], "grades": [5, 5, 5, 5], "avg": 5.0, "category": "excellent", "category_title": "Отличник", "parallel": "4 А", "note": "", "cat_order": 0, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_12", "name": "G`ayratov Mustafo", "grades_raw": ["4", "5", "5", "5"], "grades": [4, 5, 5, 5], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_31", "name": "Xakimjonova Imonabegim", "grades_raw": ["5", "5", "5", "4"], "grades": [5, 5, 5, 4], "avg": 4.75, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_14", "name": "Kuznesova Polina", "grades_raw": ["4", "5", "5", "4"], "grades": [4, 5, 5, 4], "avg": 4.5, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_16", "name": "Maxmudova Shahinaxon", "grades_raw": ["4", "5", "5", "4"], "grades": [4, 5, 5, 4], "avg": 4.5, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_3", "name": "Abdurashidov Shamshodbek", "grades_raw": ["4", "5", "4", "4"], "grades": [4, 5, 4, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_5", "name": "Axmedov Zafarbek", "grades_raw": ["4", "5", "4", "4"], "grades": [4, 5, 4, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 1, "group12_title": "Группа 1"}, {"id": "5a_17", "name": "Nasimov Abdulaziz", "grades_raw": ["4", "4", "4", "5"], "grades": [4, 4, 4, 5], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_20", "name": "Olimjonova Mohlaroy", "grades_raw": ["4", "4", "5", "4"], "grades": [4, 4, 5, 4], "avg": 4.25, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_1", "name": "Abdujalilov Davlatbek", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_10", "name": "Bahromov Kamronbek", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 В", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_11", "name": "Baxodirov Shohzodbek", "grades_raw": ["4", "-", "-", "-"], "grades": [4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_22", "name": "Remizova Angelina", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_23", "name": "Ro`ziyev Muhammadali", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_26", "name": "Saidov Sardorbek", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_35", "name": "Shavkatova Ominaxon", "grades_raw": ["4", "-", "-", "-"], "grades": [4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 Б", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_30", "name": "Xabibiddinov Firdavs", "grades_raw": ["4", "4", "4", "4"], "grades": [4, 4, 4, 4], "avg": 4.0, "category": "good", "category_title": "Хорошист", "parallel": "4 А", "note": "", "cat_order": 1, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_32", "name": "Xalikov Muhammadnur", "grades_raw": ["4", "4", "5", "3"], "grades": [4, 4, 5, 3], "avg": 4.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_7", "name": "Azimov Shaxboz", "grades_raw": ["3", "4", "4", "4"], "grades": [3, 4, 4, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 2, "group12_title": "Группа 2"}, {"id": "5a_13", "name": "Komilova Oydinoy", "grades_raw": ["3", "4", "4", "4"], "grades": [3, 4, 4, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_19", "name": "Numonjonova Farzonaxon", "grades_raw": ["4", "4", "4", "3"], "grades": [4, 4, 4, 3], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_25", "name": "Sadikova Farzona", "grades_raw": ["4", "4", "3", "4"], "grades": [4, 4, 3, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_34", "name": "Yursinboyeva Solixabegim", "grades_raw": ["4", "3", "4", "4"], "grades": [4, 3, 4, 4], "avg": 3.75, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_9", "name": "Ashurova Ziyodaxon", "grades_raw": ["3", "4", "4", "3"], "grades": [3, 4, 4, 3], "avg": 3.5, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_21", "name": "Raxmonaliyev Davlatbek", "grades_raw": ["-", "-", "4", "3"], "grades": [4, 3], "avg": 3.5, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_4", "name": "Adxamov Amirolimxon", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 В", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_6", "name": "Aysayev Abdulloh", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_8", "name": "Azizov Bexruzbek", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_36", "name": "Sherstyukov Nikolay", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_33", "name": "Xalmatov Muhammadxon", "grades_raw": ["3", "3", "3", "3"], "grades": [3, 3, 3, 3], "avg": 3.0, "category": "satisfactory", "category_title": "Троечник", "parallel": "4 А", "note": "", "cat_order": 2, "group12": 3, "group12_title": "Группа 3"}, {"id": "5a_2", "name": "Abdullajonov Asilbek", "grades_raw": ["-", "-", "-", "-"], "grades": [], "avg": null, "category": "no_data", "category_title": "Нет данных", "parallel": "4 Б", "note": "", "cat_order": 3, "group12": 3, "group12_title": "Группа 3"}], "groups12_info": [{"id": 1, "title": "Группа 1 (12 человек)", "icon": "🥇", "desc": "6 отличников (5.00) + 6 хорошистов (4.25 – 4.75)"}, {"id": 2, "title": "Группа 2 (12 человек)", "icon": "🥈", "desc": "10 хорошистов (4.00) + 2 троечника (3.75 – 4.00)"}, {"id": 3, "title": "Группа 3 (12 человек)", "icon": "🥉", "desc": "11 троечников (3.00 – 3.75) + 1 ученик без оценок"}]}};
+
+    const ACTIVE_CLASS_KEY = 'soch_tracker_active_class_selected';
+    const ATTENDANCE_PREFIX = 'soch_tracker_attendance_';
+
+    let activeClassId = '5g';
+    try {
+      const savedClass = localStorage.getItem(ACTIVE_CLASS_KEY);
+      if (savedClass && CLASSES_DATABASE[savedClass]) {
+        activeClassId = savedClass;
+      }
+    } catch (e) {}
+
+    let currentViewMode = 'categories';
+    let currentStatusFilter = 'all';
+    let searchQuery = '';
+
+    function loadClassAttendance(classId) {
+      try {
+        const saved = localStorage.getItem(ATTENDANCE_PREFIX + classId);
+        return saved ? JSON.parse(saved) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    let currentAttendance = loadClassAttendance(activeClassId);
+
+    function saveState() {
+      try {
+        localStorage.setItem(ATTENDANCE_PREFIX + activeClassId, JSON.stringify(currentAttendance));
+        showToast('💾 Сохранено автоматически');
+      } catch (e) {}
+      updateStats();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const msgElem = document.getElementById('toastMsg');
+      msgElem.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    function switchClass(classId) {
+      if (!CLASSES_DATABASE[classId]) return;
+      activeClassId = classId;
+      try {
+        localStorage.setItem(ACTIVE_CLASS_KEY, classId);
+      } catch (e) {}
+
+      document.getElementById('tab5g').classList.toggle('active', classId === '5g');
+      document.getElementById('tab5a').classList.toggle('active', classId === '5a');
+
+      currentAttendance = loadClassAttendance(activeClassId);
+      searchQuery = '';
+      document.getElementById('searchInput').value = '';
+
+      renderApp();
+      showToast(`🏫 Переключено на ${CLASSES_DATABASE[classId].title}`);
+    }
+
+    function setStudentStatus(id, newStatus) {
+      if (!currentAttendance[id]) {
+        currentAttendance[id] = { status: 'pending', note: '' };
+      }
+      if (currentAttendance[id].status === newStatus) {
+        currentAttendance[id].status = 'pending';
+      } else {
+        currentAttendance[id].status = newStatus;
+      }
+      saveState();
+      renderApp();
+    }
+
+    function updateStudentNote(id, noteText) {
+      if (!currentAttendance[id]) {
+        currentAttendance[id] = { status: 'pending', note: '' };
+      }
+      currentAttendance[id].note = noteText;
+      saveState();
+    }
+
+    function resetStudent(id) {
+      if (currentAttendance[id]) {
+        currentAttendance[id].status = 'pending';
+        saveState();
+        renderApp();
+      }
+    }
+
+    function markGroupAll(groupIds, status) {
+      groupIds.forEach(id => {
+        if (!currentAttendance[id]) {
+          currentAttendance[id] = { status: 'pending', note: '' };
+        }
+        currentAttendance[id].status = status;
+      });
+      saveState();
+      renderApp();
+    }
+
+    function resetGroupAll(groupIds) {
+      groupIds.forEach(id => {
+        if (currentAttendance[id]) {
+          currentAttendance[id].status = 'pending';
+        }
+      });
+      saveState();
+      renderApp();
+    }
+
+    function resetActiveStatuses() {
+      const cls = CLASSES_DATABASE[activeClassId];
+      if (confirm(`Вы уверены, что хотите сбросить статусы всех учеников ${cls.title}?`)) {
+        currentAttendance = {};
+        saveState();
+        renderApp();
+        showToast(`🔄 Статусы ${cls.title} сброшены`);
+      }
+    }
+
+    function updateStats() {
+      const cls = CLASSES_DATABASE[activeClassId];
+      const students = cls.students;
+
+      let present = 0;
+      let absent = 0;
+      let pending = 0;
+
+      students.forEach(st => {
+        const state = currentAttendance[st.id] || { status: 'pending' };
+        if (state.status === 'present') present++;
+        else if (state.status === 'absent') absent++;
+        else pending++;
+      });
+
+      const total = students.length;
+      document.getElementById('dashTotal').textContent = total;
+      document.getElementById('dashPresent').textContent = present;
+      document.getElementById('dashAbsent').textContent = absent;
+      document.getElementById('dashPending').textContent = pending;
+
+      document.getElementById('cntAll').textContent = total;
+      document.getElementById('cntPresent').textContent = present;
+      document.getElementById('cntAbsent').textContent = absent;
+      document.getElementById('cntPending').textContent = pending;
+
+      document.getElementById('progressClassLabel').textContent = `Прогресс отметки: ${cls.title}`;
+      const checkedCount = present + absent;
+      const pct = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+      document.getElementById('progressPercentLabel').textContent = `${checkedCount} из ${total} (${pct}%)`;
+
+      const presentPct = total > 0 ? (present / total) * 100 : 0;
+      const absentPct = total > 0 ? (absent / total) * 100 : 0;
+      document.getElementById('barPresent').style.width = `${presentPct}%`;
+      document.getElementById('barAbsent').style.width = `${absentPct}%`;
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      document.getElementById('btnModeCat').classList.toggle('active', mode === 'categories');
+      document.getElementById('btnModeGrp').classList.toggle('active', mode === 'groups12');
+      document.getElementById('btnModeFlat').classList.toggle('active', mode === 'flat');
+      renderApp();
+    }
+
+    function setStatusFilter(filter) {
+      currentStatusFilter = filter;
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
+      });
+      renderApp();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      renderApp();
+    }
+
+    function filterStudent(st) {
+      const state = currentAttendance[st.id] || { status: 'pending' };
+      if (currentStatusFilter !== 'all' && state.status !== currentStatusFilter) {
+        return false;
+      }
+      if (searchQuery) {
+        const fullName = st.name.toLowerCase();
+        if (!fullName.includes(searchQuery)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function createStudentCard(st, index) {
+      const state = currentAttendance[st.id] || { status: 'pending', note: '' };
+      const currentStatus = state.status;
+
+      let statusBadge = '<span class="status-state-pill state-pending">⚪ Не отмечен</span>';
+      if (currentStatus === 'present') {
+        statusBadge = '<span class="status-state-pill state-present">✅ СДАЁТ СОЧ</span>';
+      } else if (currentStatus === 'absent') {
+        statusBadge = '<span class="status-state-pill state-absent">⛔ НЕ ПРИШЁЛ</span>';
+      }
+
+      let catTagCls = 'cat-tag-good';
+      if (st.category === 'excellent') catTagCls = 'cat-tag-excellent';
+      else if (st.category === 'satisfactory') catTagCls = 'cat-tag-satisfactory';
+      else if (st.category === 'no_data') catTagCls = 'cat-tag-nodata';
+
+      // 4 Quarters strip
+      const qBadges = st.grades_raw.map((g, i) => {
+        let cls = 'grade-badge';
+        if (g === '5') cls += ' grade-5';
+        else if (g === '4') cls += ' grade-4';
+        else if (g === '3') cls += ' grade-3';
+        else cls += ' grade-dash';
+        return `
+          <div class="quarter-item">
+            <span class="quarter-label">${i+1} четв</span>
+            <span class="${cls}">${g || '—'}</span>
+          </div>
+        `;
+      }).join('');
+
+      const avgText = st.avg !== null ? st.avg.toFixed(2) : '—';
+
+      return `
+        <div class="student-card status-${currentStatus}" id="card_${st.id}">
+          <div class="card-top-row">
+            <div class="card-person">
+              <div class="person-num">${index}</div>
+              <div class="person-details">
+                <div class="name">${st.name}</div>
+                <div class="subinfo">
+                  <span class="category-tag ${catTagCls}">${st.category_title}</span>
+                  <span>• ${st.parallel || CLASSES_DATABASE[activeClassId].title}</span>
+                </div>
+              </div>
+            </div>
+            <div>${statusBadge}</div>
+          </div>
+
+          <div class="grades-strip">
+            <div class="quarters-list">${qBadges}</div>
+            <div class="avg-score-block">
+              <span class="avg-label">Ср. балл</span>
+              <span class="avg-value">⭐ ${avgText}</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-soch ${currentStatus === 'present' ? 'active' : ''}" 
+                    onclick="setStudentStatus('${st.id}', 'present')">
+              ✍️ Сдает СОЧ
+            </button>
+            <button class="btn-absent ${currentStatus === 'absent' ? 'active' : ''}" 
+                    onclick="setStudentStatus('${st.id}', 'absent')">
+              ❌ Не пришел
+            </button>
+            <button class="btn-revert" title="Сбросить отметку в нейтральное состояние" onclick="resetStudent('${st.id}')">
+              ↺
+            </button>
+          </div>
+
+          <div class="card-note">
+            <input type="text" class="note-input-field" placeholder="Добавить заметку (вариант, время, комментарий)..." 
+                   value="${state.note ? state.note.replace(/"/g, '&quot;') : ''}"
+                   onchange="updateStudentNote('${st.id}', this.value)">
+          </div>
+        </div>
+      `;
+    }
+
+    function renderApp() {
+      const cls = CLASSES_DATABASE[activeClassId];
+      const container = document.getElementById('tilesContainer');
+      container.innerHTML = '';
+
+      if (currentViewMode === 'categories') {
+        renderByCategoryView(container, cls);
+      } else if (currentViewMode === 'groups12') {
+        renderByGroups12View(container, cls);
+      } else {
+        renderFlatView(container, cls);
+      }
+
+      updateStats();
+    }
+
+    function renderByCategoryView(container, cls) {
+      const categories = [
+        {
+          key: 'excellent',
+          title: 'Отличники',
+          icon: '🌟',
+          clsModifier: 'tile-excellent',
+          desc: 'Круглые отличники и отличники 3-4 четвертей (все оценки «5»)'
+        },
+        {
+          key: 'good',
+          title: 'Хорошисты',
+          icon: '🎖️',
+          clsModifier: 'tile-good',
+          desc: 'Только четверки и пятерки, без троек (средний балл от 4.00 до 4.75)'
+        },
+        {
+          key: 'satisfactory',
+          title: 'Троечники',
+          icon: '📘',
+          clsModifier: 'tile-satisfactory',
+          desc: 'Ученики, имеющие тройки в четвертях (средний балл от 3.00 до 4.00)'
+        },
+        {
+          key: 'no_data',
+          title: 'Без архивных оценок',
+          icon: '❓',
+          clsModifier: 'tile-nodata',
+          desc: 'Нет оценок за 4-й класс в карточке eMaktab'
+        }
+      ];
+
+      categories.forEach(cat => {
+        const catStudents = cls.students.filter(s => s.category === cat.key);
+        const filteredStudents = catStudents.filter(filterStudent);
+
+        if (filteredStudents.length === 0 && (searchQuery || currentStatusFilter !== 'all')) {
+          return;
+        }
+
+        const studentIds = JSON.stringify(catStudents.map(s => s.id));
+
+        const section = document.createElement('div');
+        section.className = `group-tile-section ${cat.clsModifier}`;
+        section.innerHTML = `
+          <div class="tile-header">
+            <div class="tile-title-group">
+              <div class="tile-avatar-icon">${cat.icon}</div>
+              <div class="tile-title-text">
+                <h2>
+                  ${cat.title} (${cls.title})
+                  <span class="tile-count-badge">${filteredStudents.length} из ${catStudents.length}</span>
+                </h2>
+                <div class="tile-subtitle">${cat.desc}</div>
+              </div>
+            </div>
+            <div class="tile-quick-actions" onclick="event.stopPropagation()">
+              <button class="action-pill-btn" onclick='markGroupAll(${studentIds}, "present")'>
+                ✍️ Отметить всех: Сдают
+              </button>
+              <button class="action-pill-btn" onclick='resetGroupAll(${studentIds})'>
+                ↺ Сбросить группу
+              </button>
+            </div>
+          </div>
+          <div class="students-container-grid">
+            ${filteredStudents.map((st, i) => createStudentCard(st, i + 1)).join('')}
+          </div>
+        `;
+        container.appendChild(section);
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = '<div class="empty-message">По выбранным фильтрам учеников не найдено.</div>';
+      }
+    }
+
+    function renderByGroups12View(container, cls) {
+      const groups = cls.groups12_info;
+
+      groups.forEach(grp => {
+        const grpStudents = cls.students.filter(s => s.group12 === grp.id);
+        const filteredStudents = grpStudents.filter(filterStudent);
+
+        if (filteredStudents.length === 0 && (searchQuery || currentStatusFilter !== 'all')) {
+          return;
+        }
+
+        const studentIds = JSON.stringify(grpStudents.map(s => s.id));
+
+        const section = document.createElement('div');
+        section.className = 'group-tile-section tile-group12';
+        section.innerHTML = `
+          <div class="tile-header">
+            <div class="tile-title-group">
+              <div class="tile-avatar-icon">${grp.icon}</div>
+              <div class="tile-title-text">
+                <h2>
+                  ${grp.title} — ${cls.title}
+                  <span class="tile-count-badge">${filteredStudents.length} из ${grpStudents.length}</span>
+                </h2>
+                <div class="tile-subtitle">${grp.desc}</div>
+              </div>
+            </div>
+            <div class="tile-quick-actions" onclick="event.stopPropagation()">
+              <button class="action-pill-btn" onclick='markGroupAll(${studentIds}, "present")'>
+                ✍️ Отметить всех: Сдают
+              </button>
+              <button class="action-pill-btn" onclick='resetGroupAll(${studentIds})'>
+                ↺ Сбросить группу
+              </button>
+            </div>
+          </div>
+          <div class="students-container-grid">
+            ${filteredStudents.map((st, i) => createStudentCard(st, i + 1)).join('')}
+          </div>
+        `;
+        container.appendChild(section);
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = '<div class="empty-message">По выбранным фильтрам учеников не найдено.</div>';
+      }
+    }
+
+    function renderFlatView(container, cls) {
+      const filteredStudents = cls.students.filter(filterStudent);
+      const studentIds = JSON.stringify(cls.students.map(s => s.id));
+
+      const section = document.createElement('div');
+      section.className = 'group-tile-section tile-group12';
+      section.innerHTML = `
+        <div class="tile-header">
+          <div class="tile-title-group">
+            <div class="tile-avatar-icon">📋</div>
+            <div class="tile-title-text">
+              <h2>
+                Общий список класса ${cls.title}
+                <span class="tile-count-badge">${filteredStudents.length} из ${cls.students.length}</span>
+              </h2>
+              <div class="tile-subtitle">Рейтинг от отличников к троечникам</div>
+            </div>
+          </div>
+          <div class="tile-quick-actions" onclick="event.stopPropagation()">
+            <button class="action-pill-btn" onclick='markGroupAll(${studentIds}, "present")'>
+              ✍️ Отметить всех: Сдают
+            </button>
+            <button class="action-pill-btn" onclick='resetGroupAll(${studentIds})'>
+              ↺ Сбросить всех
+            </button>
+          </div>
+        </div>
+        <div class="students-container-grid">
+          ${filteredStudents.map((st, i) => createStudentCard(st, i + 1)).join('')}
+        </div>
+      `;
+      container.appendChild(section);
+
+      if (filteredStudents.length === 0) {
+        container.innerHTML = '<div class="empty-message">По выбранным фильтрам учеников не найдено.</div>';
+      }
+    }
+
+    function exportToCSV() {
+      const cls = CLASSES_DATABASE[activeClassId];
+      const rows = [];
+      rows.push(`Ведомость сдачи СОЧ по математике: ${cls.title}`);
+      rows.push("№,Фамилия и имя,Категория,Группа 12,1 четв,2 четв,3 четв,4 четв,Средний балл,Статус СОЧ,Заметка");
+
+      cls.students.forEach((st, idx) => {
+        const state = currentAttendance[st.id] || { status: 'pending', note: '' };
+        let statusStr = "Не отмечен";
+        if (state.status === 'present') statusStr = "Сдаёт СОЧ";
+        else if (state.status === 'absent') statusStr = "Не пришёл";
+
+        const line = [
+          idx + 1,
+          `"${st.name}"`,
+          `"${st.category_title}"`,
+          `"${st.group12_title}"`,
+          st.grades_raw[0] || "—",
+          st.grades_raw[1] || "—",
+          st.grades_raw[2] || "—",
+          st.grades_raw[3] || "—",
+          st.avg !== null ? st.avg.toFixed(2) : "—",
+          `"${statusStr}"`,
+          `"${(state.note || '').replace(/"/g, '""')}"`
+        ];
+        rows.push(line.join(","));
+      });
+
+      const csvContent = "\uFEFF" + rows.join("\r\n");
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      const dateStr = new Date().toISOString().slice(0, 10);
+      link.setAttribute("href", url);
+      link.setAttribute("download", `SOCH_${cls.short}_${dateStr}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast(`📥 Таблица ${cls.title} сохранена`);
+    }
+
+    document.getElementById('tab5g').classList.toggle('active', activeClassId === '5g');
+    document.getElementById('tab5a').classList.toggle('active', activeClassId === '5a');
+
+    renderApp();
+  </script>
+</body>
+</html>
